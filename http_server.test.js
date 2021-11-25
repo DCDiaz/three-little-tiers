@@ -63,6 +63,12 @@ it('verify data', async done => {
     done();
 }) 
 
+it('fail test', async done => {
+    const data = await request.get('/data');
+    expect(data.body.some(e => e.name === user1.username)).toBeTruthy();
+    done();
+}) 
+
 var server = app.listen(3030, function(){
     console.log('Running on port 3030');
 });
